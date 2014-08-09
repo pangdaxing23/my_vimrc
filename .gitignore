@@ -1,0 +1,6 @@
+# ignore swap files and that weird DS_Store file. What the hell is it, a store for the Nintendo DS? I already
+# have one!!
+
+*.swp
+*~
+.DS_Store

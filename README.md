@@ -1,11 +1,10 @@
-# My vimrc file
+# Big fat star's vimrc file
 
-A basic config that uses Vundle to manage plugins.
+My vimrc. Uses a collection of my favorite plugins, managed by Vundle. Adds quite a bit to vim.  At the moment is focused on ruby development.
 
 ## To do:
 
-* fix syntax coloring, it's a little off, eg. numbers don't use the right color.
 * customize statusline
 * configure neocomplete and snippets
-* configure indent guides
+* other basic configurations 
 * MOAR CUSTOMIZATIONZ

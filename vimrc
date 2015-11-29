@@ -1,150 +1,131 @@
 """"""""""""""""""""""""""""""""""""""""
-"""""""""pangdaxing23's vimrc"""""""""""
+""""""""" pangdaxing23's vimrc """""""""
 """"""""""""""""""""""""""""""""""""""""
+" TODO: Remove redundancies, obsoletes. Get the broom out.
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible " be iMproved
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/bundle')
+" theme
+" Plugin 'altercation/vim-colors-solarized' "solarized color scheme
+Plug 'chriskempson/base16-vim'
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'bling/vim-airline' "airline statusline
+Plug 'bling/vim-bufferline' "display buffers on statusline
 
-" Keep Plugin commands between vundle#begin/end.
-" plugins on GitHub repo
+" Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-fugitive' "github integration
+Plug 'tpope/vim-sensible' "sensible defaults
 
-Plugin 'tpope/vim-fugitive' "github integration
-Plugin 'tpope/vim-sensible' "sensible defaults
-Plugin 'tpope/vim-surround' "surround text objects with quotes, tags, etc
-Plugin 'bling/vim-airline' "airline statusline
-Plugin 'bling/vim-bufferline'
-Plugin 'tpope/vim-repeat'
+" ysiw" to surround word with "
+" cs'} to change 'duck' to {duck}
+Plug 'tpope/vim-surround' "surround text objects with quotes, tags, etc
 
-"mapped to F5 here"
-Plugin 'sjl/gundo.vim'
+Plug 'tpope/vim-repeat' "repeat plugin commands
 
-Plugin 'altercation/vim-colors-solarized' "solarized color scheme
-"Plugin 'chriskempson/vim-tomorrow-theme'
-"Plugin 'chriskempson/base16-vim'
+Plug 'mattn/emmet-vim'
 
-Plugin 'scrooloose/nerdtree' "
-Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'ervandew/supertab'
-Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'Shougo/neocomplcache.vim'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tpope/vim-commentary'
-Plugin 'Raimondi/delimitMate'
-Plugin 'mattn/emmet-vim'
+" press ctrl-n
+Plug 'terryma/vim-multiple-cursors'
 
-"press ctrl-n"
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/syntastic' "syntax checking
+" Plugin 'kien/ctrlp.vim' "
+" Plugin 'majutsushi/tagbar' "
 
-"press gf"
-Plugin 'amix/open_file_under_cursor.vim'
+Plug 'ervandew/supertab' "tab for autocompletions
 
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-endwise'
-"
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'Shougo/neosnippet.vim'
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-"Plugin 'honza/vim-snippets'
+" gcc to comment line, gc to comment motion/visual mode selection, gcap paragraph, gcgc to uncomment set of adjacent lines
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise' "auto-add end, endif, etc
+Plug 'jiangmiao/auto-pairs' "auto-add quotes, parens, brackets, carriage, etc
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" press gf
+Plug 'amix/open_file_under_cursor.vim'
 
-"change <Leader> key to ","
+Plug 'pangloss/vim-javascript'
+Plug 'digitaltoad/vim-jade'
+
+" On-demand loading
+" mapped to Ctrl-h
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" mapped to F5"
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+
+" Group dependencies, vim-snippets depends on ultisnips
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'Shougo/neocomplete.vim' | Plug 'Shougo/neosnippet-snippets' | Plug 'Shougo/neosnippet.vim'
+
+" Add plugins to &runtimepath
+call plug#end()
+
+"" filetype plugin on
+
+" change <Leader> key to ","
 let mapleader=","
 
-set shortmess=a "disable splash screen
-set cmdheight=1 "command height of 1
-
-set number "show line numbers
-set smartindent
+set shortmess=a " disable splash screen
+set cmdheight=1 " command height of 1
+set noshowmode " don't duplicate insert/replace/visual mode in statusbar
+set showcmd " show command as it's being entered
+set number " show line numbers
+" set smartindent
 set autoindent
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
-
 set ignorecase " case insensitive search
 set smartcase " If there are uppercase letters, become case-sensitive.
 set incsearch " live incremental searching
 set showmatch " live match highlighting
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
+set hidden " allow to switch between buffers without saving
+set laststatus=2 " Status bar always present, default is only on split
+set antialias encoding=utf-8
+set mouse=a " mouse mode, don't copy lines, scroll, etc.
 
-"Buffer switching shortcuts
-map gn :bn<cr>
-map gp :bp<cr>
-map gd :bd<cr> 
+" indents for certain filetypes
+"FIXME: dont think this does anything, check later
+autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
 
-syntax enable "syntax highlighting
-set background=dark "change to background=light for light theme
+" buffer switching shortcuts
+map <left> :bprevious<CR>
+map <right> :bnext<CR>
 
-"A bunch of Terminal Compatibility
-if !has('gui_running')
-    " Compatibility for Terminal
-    let g:solarized_termtrans=1
+" nerd tree ctrl-h toggle
+map <C-h> :NERDTreeToggle<CR>
 
-    if (&t_Co >= 256 || $TERM == 'xterm-256color')
-        " Do nothing, it handles itself.
-    else
-        " Make Solarized use 16 colors for Terminal support
-        let g:solarized_termcolors=16
-    endif
-endif
+" gundo F5 toggle
+nnoremap <F5> :GundoToggle<CR>
 
-colorscheme solarized
+" bufferline config
+let g:bufferline_rotate = 1
+let g:bufferline_fixed_index = -1 "always last
 
-if colors_name == 'solarized'
-  if has('gui_macvim')
-    set transparency=0
-  endif
+" different modes have different cursor shapes for tmux in iTerm
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
-  if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
-    let g:solarized_termcolors = &t_Co
-    let g:solarized_termtrans = 1
-    colorscheme solarized
-  endif
+" different modes for different cursor shapes in iTerm, no tmux
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-  call togglebg#map("<F2>")
-endif
+syntax enable " syntax highlighting
+set background=dark " light/dark
 
-set anti enc=utf-8
-set guifont=Sauce\ Code\ Pro\ for\ Powerline
-"End Terminal compatibility, whew that was a lot.
+" colorscheme
+let base16colorspace=256  " Access colors present in 256 colorspace"
+colorscheme base16-eighties
 
-"airline settings
-"Status bar always present, default is only on split
-set laststatus=2
-
-"set airline theme
-let g:airline_theme='solarized'
+" airline
+" airline colorscheme
+let g:airline_theme='base16'
 
 "fonts for special characters in airline
 let g:airline_powerline_fonts = 1
@@ -154,15 +135,30 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 
-"Change emmet leader key to 'Z', so to expand, press 'Ctrl-Z', then ','
-"let g:user_emmet_leader_key='<C-Z>'
+" FIXME: don't really see why i need this...
+" Terminal compatibility
+if colors_name == 'solarized'
+  if has('gui_macvim')
+    set transparency=0
+  endif
+  if !has('gui_running')
+    let g:solarized_termtrans=1
+    if (&t_Co < 256 && $TERM != 'xterm-256color')
+      let g:solarized_termcolors=16
+    endif
+    if $TERM_PROGRAM == 'Apple_Terminal'
+      let g:solarized_termcolors = &t_Co
+    endif
+  endif
+  call togglebg#map("<F2")
+endif
+" End Terminal compatibility, whew that was a lot.
 
-nnoremap <F5> :GundoToggle<CR>
+" Change emmet leader key to 'Z', so to expand, press 'Ctrl-Z', then ','
+" let g:user_emmet_leader_key='<C-Z>'
 
-""""""""""""""""
-"neocomplete"
-""""""""""""""""
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" neocomplete
+" Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
@@ -175,14 +171,14 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -194,38 +190,21 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
+" inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+" let g:neocomplete#enable_auto_select = 1
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -238,10 +217,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+" let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'

@@ -1,1 +1,1 @@
-set guifont=Source\ Code\ Pro\
+set guifont=Sauce\ Code\ Powerline:h16

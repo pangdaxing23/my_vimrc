@@ -106,16 +106,6 @@ nnoremap <F5> :GundoToggle<CR>
 let g:bufferline_rotate = 1
 let g:bufferline_fixed_index = -1 "always last
 
-" different modes have different cursor shapes for tmux in iTerm
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
-" different modes for different cursor shapes in iTerm, no tmux
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
 syntax enable " syntax highlighting
 set background=dark " light/dark
 
@@ -134,6 +124,23 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+
+"comments are italic
+highlight Comment cterm=italic
+set t_ZH=[3m
+set t_ZR=[23m
+
+" different modes have different cursor shapes for tmux in iTerm
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+" different modes for different cursor shapes in iTerm, no tmux
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+
 
 " FIXME: don't really see why i need this...
 " Terminal compatibility

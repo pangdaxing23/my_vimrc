@@ -9,6 +9,7 @@ call plug#begin('~/.vim/bundle')
 " theme
 " Plug 'chriskempson/base16-vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'altercation/vim-colors-solarized' "solarized color scheme
 
 Plug 'bling/vim-airline' "airline statusline
 Plug 'bling/vim-bufferline' "display buffers on statusline
@@ -27,8 +28,8 @@ Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'scrooloose/syntastic' "syntax checking
-" Plugin 'kien/ctrlp.vim' "
-" Plugin 'majutsushi/tagbar' "
+" Plug 'ctrlpvim/ctrlp.vim' "
+" Plug 'majutsushi/tagbar' "
 
 Plug 'ervandew/supertab' "tab for autocompletions
 
@@ -51,7 +52,6 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 
 " Group dependencies, i.e: vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" Plug 'Shougo/neocomplete.vim' | Plug 'Shougo/neosnippet-snippets' | Plug 'Shougo/neosnippet.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -67,19 +67,19 @@ set wildmenu
 set wildmode=list:longest,full
 set visualbell " no beep
 set number " show line numbers
-" set smartindent
 set autoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set breakindent " smart wrap
 set ignorecase " case insensitive search
 set smartcase " If there are uppercase letters, become case-sensitive.
 set incsearch " live incremental searching
 set showmatch " live match highlighting
 set hlsearch " highlight matches
-set cursorline "highlight current line
-set scrolloff=2 "scroll offset at page edges
+set cursorline " highlight current line
+set scrolloff=2 " scroll offset at page edges
 set gdefault " use the `g` flag by default.
 set hidden " allow to switch between buffers without saving
 set laststatus=2 " Status bar always present, default is only on split

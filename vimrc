@@ -22,6 +22,7 @@ Plug 'tpope/vim-sensible' "sensible defaults
 " cs'} to change 'duck' to {duck}
 Plug 'tpope/vim-surround' "surround text objects with quotes, tags, etc
 Plug 'tpope/vim-repeat' "repeat plugin commands
+Plug 'tpope/vim-speeddating' " inc/decrement dates with <C-a>/<C-x>
 Plug 'mattn/emmet-vim'
 
 " press ctrl-n
@@ -72,6 +73,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set smarttab
 set breakindent " smart wrap
 set ignorecase " case insensitive search
 set smartcase " If there are uppercase letters, become case-sensitive.
@@ -82,9 +84,13 @@ set cursorline " highlight current line
 set scrolloff=2 " scroll offset at page edges
 set gdefault " use the `g` flag by default.
 set hidden " allow to switch between buffers without saving
+set autoread " auto reread files changed outside of vim
 set laststatus=2 " Status bar always present, default is only on split
 set antialias encoding=utf-8
 set mouse=a " mouse mode, don't copy lines, scroll, etc.
+
+" make Y behave like C and D
+nmap Y y$
 
 " indents for certain filetypes
 " FIXME: dont think this does anything, check later
@@ -93,10 +99,13 @@ autocmd FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType jade setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
-" buffer switching shortcuts
-map <left> :bprevious<CR>
-map <right> :bnext<CR>
+" buffer/tab switching shortcuts
+nnoremap <left> :bprevious<CR>
+nnoremap <right> :bnext<CR>
+nnoremap <S-left> :tabp<CR>
+nnoremap <S-right> :tabn<CR>
 
 " nerd tree ctrl-h toggle
 map <C-h> :NERDTreeToggle<CR>

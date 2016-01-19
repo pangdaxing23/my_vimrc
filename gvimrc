@@ -11,15 +11,20 @@ else
     set linespace=1
 endif
 
-set guioptions-=rlRL  "remove scroll bar
+set guioptions-=r  "remove right scroll bar
+" set guioptions-=l  "remove scroll bar
+" set guioptions-=R  "remove scroll bar
+set guioptions-=L  "remove scroll bar
 
 " or some other theme that supports italics
-colorscheme solarized
+" colorscheme solarized
+
 call togglebg#map("")
 
 " airline
 " airline colorscheme
 let g:airline_theme='solarized'
+let g:airline_theme='base16'
 
 set background=dark "light/dark
 

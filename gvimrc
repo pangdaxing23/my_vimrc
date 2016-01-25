@@ -2,7 +2,7 @@
 """""""" pangdaxing23's gvimrc """""""""
 """"""""""""""""""""""""""""""""""""""""
 
-set guifont=InputMono\ Light:h15
+set guifont=InputMono\ Light:h14
 
 " InputMono is really close together for some reason
 if &guifont =~ 'InputMono'
@@ -17,7 +17,7 @@ set guioptions-=r  "remove right scroll bar
 set guioptions-=L  "remove scroll bar
 
 " or some other theme that supports italics
-" colorscheme solarized
+colorscheme solarized
 
 call togglebg#map("")
 
@@ -27,4 +27,3 @@ let g:airline_theme='solarized'
 let g:airline_theme='base16'
 
 set background=dark "light/dark
-

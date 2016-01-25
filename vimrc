@@ -24,6 +24,7 @@ Plug 'tpope/vim-surround' "surround text objects with quotes, tags, etc
 Plug 'tpope/vim-repeat' "repeat plugin commands
 Plug 'tpope/vim-speeddating' " inc/decrement dates with <C-a>/<C-x>
 Plug 'mattn/emmet-vim'
+Plug 'KabbAmine/vCoolor' "color picker
 
 " press ctrl-n
 Plug 'terryma/vim-multiple-cursors'
@@ -50,7 +51,8 @@ Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-
+Plug 'chrisbra/Colorizer', { 'for': 'css' }
+Plug 'gregsexton/MatchTag', { 'for': 'html' }
 " Group dependencies, i.e: vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -92,6 +94,10 @@ set mouse=a " mouse mode, don't copy lines, scroll, etc.
 " make Y behave like C and D
 nmap Y y$
 
+" allow capital W/Q for write/quit
+cnoreabbrev W w
+cnoreabbrev Q q
+
 " indents for certain filetypes
 " FIXME: dont think this does anything, check later
 " FIXME: should probably set default to tabwidth 2, set to 4 for C, etc.
@@ -119,6 +125,8 @@ let g:gundo_prefer_python3 = 1
 let g:bufferline_rotate = 1
 let g:bufferline_fixed_index = -1 "always last
 let g:bufferline_echo = 0 "no command bar echo
+
+let g:colorizer_auto_filetype='css,html'
 
 syntax enable "syntax highlighting
 

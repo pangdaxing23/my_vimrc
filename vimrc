@@ -12,11 +12,13 @@ Plug 'junegunn/seoul256.vim'
 Plug 'altercation/vim-colors-solarized' "solarized color scheme
 
 Plug 'bling/vim-airline' "airline statusline
+Plug 'vim-airline/vim-airline-themes' "airline themes
 Plug 'bling/vim-bufferline' "display buffers on statusline
 
 " Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-fugitive' "github integration
 Plug 'tpope/vim-sensible' "sensible defaults
+Plug 'airblade/vim-gitgutter' "git gutter
 
 " ysiw" to surround word with "
 " cs'} to change 'duck' to {duck}
@@ -56,6 +58,8 @@ Plug 'gregsexton/MatchTag', { 'for': 'html' }
 " Group dependencies, i.e: vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+Plug 'ryanss/vim-hackernews' "yeaaaaa
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -94,9 +98,10 @@ set mouse=a " mouse mode, don't copy lines, scroll, etc.
 " make Y behave like C and D
 nmap Y y$
 
-" allow capital W/Q for write/quit
+" allow capitals for common commands
 cnoreabbrev W w
 cnoreabbrev Q q
+cnoreabbrev E e
 
 " indents for certain filetypes
 " FIXME: dont think this does anything, check later

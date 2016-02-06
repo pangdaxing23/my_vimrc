@@ -32,7 +32,7 @@ Plug 'KabbAmine/vCoolor' "color picker
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'scrooloose/syntastic' "syntax checking
-" Plug 'ctrlpvim/ctrlp.vim' "
+Plug 'ctrlpvim/ctrlp.vim' "fuzzy file, buffer, tag, etc finder
 " Plug 'majutsushi/tagbar' "
 
 Plug 'ervandew/supertab' "tab for autocompletions
@@ -103,6 +103,9 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev E e
 
+" <leader> p toggles paste mode
+nmap <leader>p :set paste!<cr>
+
 " indents for certain filetypes
 " FIXME: dont think this does anything, check later
 " FIXME: should probably set default to tabwidth 2, set to 4 for C, etc.
@@ -121,6 +124,12 @@ nnoremap <S-right> :tabn<CR>
 " nerd tree ctrl-h toggle
 map <C-h> :NERDTreeToggle<CR>
 
+" C-p for ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" exclude files in .gitignore
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 " gundo F5 toggle
 nnoremap <F5> :GundoToggle<CR>
 " Note: hardly works, gets error messages usually. consider removing.
@@ -149,6 +158,8 @@ let g:airline_theme='base16'
 
 "fonts for special characters in airline
 let g:airline_powerline_fonts = 1
+
+let g:airline_section_y = ""
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}

@@ -24,9 +24,10 @@ Plug 'airblade/vim-gitgutter' "git gutter
 " cs'} to change 'duck' to {duck}
 Plug 'tpope/vim-surround' "surround text objects with quotes, tags, etc
 Plug 'tpope/vim-repeat' "repeat plugin commands
+Plug 'tpope/vim-eunuch' "unix helpers, :Move, :Rename, :Remove, :Wall, :Mkdir, :Chmod
 Plug 'tpope/vim-speeddating' " inc/decrement dates with <C-a>/<C-x>
 Plug 'mattn/emmet-vim'
-Plug 'KabbAmine/vCoolor' "color picker
+Plug 'KabbAmine/vCoolor.vim' "color picker
 
 " press ctrl-n
 Plug 'terryma/vim-multiple-cursors'

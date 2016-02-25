@@ -52,7 +52,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "mapped to Ctrl-h
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } "mapped to F5
 Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'chrisbra/Colorizer', { 'for': 'css' }
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
@@ -76,9 +76,9 @@ set wildmode=list:longest,full
 set visualbell " no beep
 set number " show line numbers
 set autoindent
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
 set breakindent " smart wrap
@@ -107,14 +107,17 @@ cnoreabbrev E e
 " <leader> p toggles paste mode
 nmap <leader>p :set paste!<cr>
 
+nmap <leader>l :set list!<cr>
+
 " indents for certain filetypes
 " FIXME: dont think this does anything, check later
 " FIXME: should probably set default to tabwidth 2, set to 4 for C, etc.
-autocmd FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType jade setlocal shiftwidth=2 softtabstop=2 tabstop=2
-autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
+autocmd FileType c setlocal shiftwidth=4 softtabstop=4 tabstop=4
+" autocmd FileType python setlocal shiftwidth=2 softtabstop=2 tabstop=2
+" autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
+" autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+" autocmd FileType pug setlocal shiftwidth=2 softtabstop=2 tabstop=2
+" autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 " buffer/tab switching shortcuts
 nnoremap <left> :bprevious<CR>
@@ -167,7 +170,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 
-if $TERM != 'screen'
+if $TERM != 'screen-256color'
   " comments are italic
   highlight Comment cterm=italic
   set t_ZH=[3m
@@ -182,7 +185,7 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-if $TERM == 'screen'
+if $TERM == 'screen-256color'
   " different modes have different cursor shapes for tmux in iTerm
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"

@@ -60,7 +60,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'chrisbra/Colorizer', { 'for': 'css' }
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'elixir-lang/vim-elixir', { 'for': ['ex', 'exs'] }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 " Group dependencies, i.e: vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 

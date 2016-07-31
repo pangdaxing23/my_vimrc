@@ -26,7 +26,7 @@ Plug 'tpope/vim-surround' "surround text objects with quotes, tags, etc
 Plug 'tpope/vim-repeat' "repeat plugin commands
 Plug 'tpope/vim-eunuch' "unix helpers, :Move, :Rename, :Remove, :Wall, :Mkdir, :Chmod
 Plug 'tpope/vim-speeddating' " inc/decrement dates with <C-a>/<C-x>
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim' " let g:user_emmet_leader_key='<C-Y>'
 Plug 'KabbAmine/vCoolor.vim' "color picker
 
 " press ctrl-n
@@ -46,16 +46,21 @@ Plug 'jiangmiao/auto-pairs' "auto-add quotes, parens, brackets, carriage, etc
 " Note: What is different from the native version of this???
 " press gf
 Plug 'amix/open_file_under_cursor.vim'
+Plug 'severin-lemaignan/vim-minimap'
+
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx' " jsx highlighting
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "mapped to Ctrl-h
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } "mapped to F5
 Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'chrisbra/Colorizer', { 'for': 'css' }
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'elixir-lang/vim-elixir', { 'for': ['ex', 'exs'] }
 " Group dependencies, i.e: vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -191,9 +196,6 @@ if $TERM == 'screen-256color'
   let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 endif
-
-" Change emmet leader key to 'Z', so to expand, press 'Ctrl-Z', then ','
-" let g:user_emmet_leader_key='<C-Z>'
 
 " FIXME: split between here and gvimrc
 " Terminal compatibility

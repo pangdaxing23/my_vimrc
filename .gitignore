@@ -12,3 +12,4 @@ init.vim
 .Trashes
 ehthumbs.db
 Thumbs.db
+bundle/
